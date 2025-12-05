@@ -14,4 +14,4 @@ Tips on how to install and work on it, can be found in the
 
 
 ## The documentation is available in details here:
-[Documentation](https://bosch-future-mobility-challenge-documentation.readthedocs-hosted.com/data/simulator.html)
+[Documentation](https://bosch-future-mobility-challenge-documentation.readthedocs-hosted.com/data/useful/simulator.html)
