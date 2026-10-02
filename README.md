@@ -57,7 +57,18 @@ docker exec -it -e DISPLAY=:0 bfmc_sim bash -c \
    roslaunch sim_pkg curved_track.launch"
 ```
 
-### Tùy chọn 2: Đường đua vòng tròn (Circle Track 10m)
+### Tùy chọn 2: Đường đua nhiều khúc cua vạch xen kẽ (Curved Track Mixed)
+Đường đua nhiều khúc cua nâng cao với vạch tim đường xen kẽ các đoạn dài (**Vạch Đứt** ở đoạn xuất phát/lòng sân và **Vạch Liền** ở các khúc cua gắt chữ S & Hairpin 180°):
+```bash
+docker exec -it -e DISPLAY=:0 bfmc_sim bash -c \
+  "source /opt/ros/noetic/setup.bash && \
+   source /root/bfmc_simulator_ws/devel/setup.bash && \
+   export GAZEBO_MODEL_PATH=/root/bfmc_simulator_ws/src/src/models_pkg:\$GAZEBO_MODEL_PATH && \
+   export GAZEBO_RESOURCE_PATH=/root/bfmc_simulator_ws/src/src/models_pkg:\$GAZEBO_RESOURCE_PATH && \
+   roslaunch sim_pkg curved_track_mixed.launch"
+```
+
+### Tùy chọn 3: Đường đua vòng tròn (Circle Track 10m)
 Đường đua vòng tròn chuẩn bán kính 5m (chu vi ~31.4m) giúp căn chỉnh ma trận Bird's-Eye-View (BEV) và độ chính xác góc lái:
 ```bash
 docker exec -it -e DISPLAY=:0 bfmc_sim bash -c \
@@ -68,7 +79,7 @@ docker exec -it -e DISPLAY=:0 bfmc_sim bash -c \
    roslaunch sim_pkg circle_track.launch"
 ```
 
-### Tùy chọn 3: Sa hình thi đấu chuẩn BTC (Full Map với Biển báo & Đèn giao thông)
+### Tùy chọn 4: Sa hình thi đấu chuẩn BTC (Full Map với Biển báo & Đèn giao thông)
 Sa hình chính thức của BFMC gồm đầy đủ biển báo, vạch người đi bộ, đèn tín hiệu và chướng ngại vật:
 ```bash
 docker exec -it -e DISPLAY=:0 bfmc_sim bash -c \

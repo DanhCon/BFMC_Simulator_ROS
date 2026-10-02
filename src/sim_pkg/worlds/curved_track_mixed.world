@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="curved_track_mixed_world">
+    <gravity>0 0 -9.8</gravity>
+
+    <!-- Nguồn sáng mặt trời chuẩn Gazebo -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Mặt sân phẳng hiển thị đường đua nhiều khúc cua có vạch liền & vạch đứt xen kẽ 16m x 16m -->
+    <model name='curved_track_mixed_plane'>
+      <static>1</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>16.0 16.0</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1.0</mu>
+                <mu2>1.0</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>16.0 16.0</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 1</emissive>
+            <script>
+              <uri>model://curved_track_mixed/materials/scripts</uri>
+              <uri>model://curved_track_mixed/materials/textures</uri>
+              <name>CurvedTrackMixed/Image</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Cấu hình vật lý chuẩn BFMC -->
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>0</shadows>
+    </scene>
+  </world>
+</sdf>

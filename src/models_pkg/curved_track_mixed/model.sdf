@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="curved_track_mixed">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>16.0 16.0</size>
+          </plane>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <collide_bitmask>65535</collide_bitmask>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>16.0 16.0</size>
+          </plane>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 1</emissive>
+          <script>
+            <uri>model://curved_track_mixed/materials/scripts</uri>
+            <uri>model://curved_track_mixed/materials/textures</uri>
+            <name>CurvedTrackMixed/Image</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
