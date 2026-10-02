@@ -1,0 +1,20 @@
+material CurvedTrack/Image
+{
+  technique
+  {
+    pass
+    {
+      ambient 1.0 1.0 1.0 1.0
+      diffuse 1.0 1.0 1.0 1.0
+      specular 0.0 0.0 0.0 1.0 0.0
+      emissive 0.0 0.0 0.0 1.0
+
+      texture_unit
+      {
+        texture curved_track_texture.png
+        filtering anisotropic
+        max_anisotropy 16
+      }
+    }
+  }
+}
